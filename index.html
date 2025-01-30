@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style.css" />
+		<title>Leo's Profile Card</title>
+	</head>
+	<body>
+		<div id="content">
+			<div class="userDetails">
+				<div class="image">
+					<img data-testid="profilePicture" src="./images/slackDisplayPicture(250px by 250px).png" />
+				</div>
+				<h1 style="display: flex; flex-direction: column; align-items: center; gap: 2px" class="fullName">
+					<strong>Full Name</strong>
+					<span style="color: rgb(187, 187, 187)" data-testid="fullName">Divine Oshione Anesi</span>
+				</h1>
+				<h3 style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+					<strong>Current Time in UTC</strong>
+					<span id="time" data-testid="currentTimeUTC"></span>
+				</h3>
+				<h3 style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+					<strong>Job Title</strong>
+					<span data-testid="jobTitle">Full-stack Web Developer</span>
+				</h3>
+				<h3 style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+					<strong>Email Address</strong>
+					<span data-testid="emailAddress">yhungdew@gmail.com</span>
+				</h3>
+				<h3 style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+					<strong>Location</strong>
+					<span data-testid="currentLocation">Lagos State, Nigeria.</span>
+				</h3>
+				<h3 style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+					<strong>Bio</strong>
+					<span data-testid="shortBio"
+						>I'm Leo, a frontend web developer based in Nigeria with a passion for building modern, responsive, and
+						user-friendly web applications. I specialize in Next.js, React, Tailwind CSS, and TypeScript, creating
+						seamless digital experiences that enhance usability and engagement. I enjoy problem-solving, writing clean
+						and efficient code, and continuously learning new technologies to improve my craft. Beyond coding, I&apos;m
+						also a musician at heart. I play the drums and other instruments, finding inspiration in rhythm and
+						creativity. My love for both development and music allows me to approach projects with a unique perspective,
+						balancing technical precision with artistic expression.</span
+					>Address
+				</h3>
+				
+			</div>
+			<br />
+			<div class="links" data-testid="socialLinks">
+				<a href="https://x.com/PrimoCrypt" target="_blank">X (Twitter)</a> •
+				<a href="https://github.com/PrimoCrypt/" target="_blank">Github</a>
+			</div>
+		</div>
+		<script>
+			function updateTimestamp() {
+				const timestampElement = document.getElementById("time");
+
+				const currentDate = new Date();
+
+				const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+				const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+				const formattedTime = currentDate.toLocaleTimeString("en-US", {
+					timeZone: "UTC",
+					hour12: true,
+					hour: "numeric",
+					minute: "numeric",
+					second: "numeric",
+				});
+				timestampElement.textContent = formattedTime;
+				dayElement.textContent = dayOfWeek;
+			}
+
+			// Update the timestamp initially and every second
+			updateTimestamp();
+			setInterval(updateTimestamp, 1000);
+		</script>
+	</body>
+</html>
